@@ -1,0 +1,22 @@
+# 密钥与敏感配置
+.env.local
+.env
+*.pem
+*.key
+
+# 依赖与构建产物
+node_modules/
+dist/
+.cache/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+*.log
+
+# 解压目录（课程 Skill 内部资料，无需推送到教学站点）
+_course-skill-extracted/
+_env-skill-extracted/
+
+# 大体积压缩包（学员可单独获取，不放入 Pages 仓库）
+*.zip

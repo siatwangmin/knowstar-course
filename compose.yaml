@@ -1,0 +1,16 @@
+services:
+  app:
+    image: ${KNOWSTAR_IMAGE:-crpi-iqktgpu6dyytuxiu.cn-hangzhou.personal.cr.aliyuncs.com/aipractice/knowstar-classroom@sha256:874c72192fff872157598d86869c56dae38edc406b5705d232271fd998ad3409}
+    platform: linux/amd64
+    volumes:
+      - ./knowstar-learning:/workspace
+      - node_modules:/workspace/node_modules
+    ports:
+      - "5187:5187"
+    healthcheck:
+      test: ["CMD", "test", "-f", "/workspace/node_modules/.knowstar-image-seeded"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+volumes:
+  node_modules:
