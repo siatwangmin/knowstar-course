@@ -18,5 +18,5 @@ Thumbs.db
 _course-skill-extracted/
 _env-skill-extracted/
 
-# 大体积压缩包（学员可单独获取，不放入 Pages 仓库）
-*.zip
+# 压缩包：仅忽略根目录原始包；docs/downloads/ 下的教学 Skill 包供网站下载
+/*.zip

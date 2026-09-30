@@ -96,6 +96,7 @@ async function loadChapter(chapter) {
 
     md = rewriteImagePaths(md, chapter);
     md = rewriteInternalLinks(md);
+    md = rewriteDownloadLinks(md);
 
     const html = marked.parse(md);
     content.innerHTML = html;
@@ -138,6 +139,11 @@ function rewriteInternalLinks(md) {
     }
     return match;
   });
+}
+
+/* ===== 重写下载链接（../xxx.zip → downloads/xxx.zip） ===== */
+function rewriteDownloadLinks(md) {
+  return md.replace(/\]\(\.\.\/([^)]+\.zip)\)/g, '](downloads/$1)');
 }
 
 /* ===== 代码高亮 ===== */
